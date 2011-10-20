@@ -1,0 +1,57 @@
+<html>
+
+  <head>
+    <script type="text/javascript">
+      function validateForm(type){
+	 var fn=document.forms["myForm"]["fname"].value;
+  	 var ln=document.forms["myForm"]["lname"].value;
+  	 var em=document.forms["myForm"]["email"].value;
+  	 var ag=document.forms["myForm"]["age"].value;
+    
+         var atpos=em.indexOf("@");
+	 var dotpos=em.lastIndexOf(".");
+         
+	 var len = ag.length;
+
+         for (len = 0; len < (ag.length); len++){
+             if(isNaN(ag.charAt(len))){
+		alert("the given age is not a number.");
+		return false;
+             }
+         }
+	 if (fn==null || fn==""){
+  	     alert("First name must be filled out");
+  	     return false;
+  	 }
+	 if (ln==null || ln==""){
+  	     alert("Last name must be filled out");
+  	     return false;
+  	 }
+	 if (em==null || em==""){
+  	     alert("Email must be filled out");
+  	     return false;
+  	 }
+	 if (ag==null || ag==""){
+  	    alert("Age must be filled out");
+  	    return false;
+         }	 
+	 if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+	    alert("You haven't entered a valid e-mail address. Please resubmit.");
+  	    return false;
+         }
+      }
+    </script>
+  </head>
+
+  <body>
+     <form name="myForm" onsubmit="return validateForm()">
+        First name: <input type="text" name="fname"><br/>
+        Last name: <input type="text" name="lname"><br/>
+        Email: <input type="text" name="email"><br/>
+        Age: <input type="text" name="age"><br/>
+        <input type="submit" onclick="return validateForm()">
+     </form>
+  </body>
+  
+</html>
+
